@@ -69,7 +69,6 @@ class NestCamera(Camera):
 
     @property
     def is_recording(self):
-        return True
         """Return true if the device is recording."""
         return self._device.device_data[self._uuid]['is_streaming']
 
@@ -88,7 +87,7 @@ class NestCamera(Camera):
 
     def update(self):
         """Cache value from Python-nest."""
-        self._device.update()
+        self._device.update_camera(self._uuid)
 
     @property
     def name(self):
